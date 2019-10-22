@@ -2,18 +2,20 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
-  <title>Currency convertor</title>
+  <title>Euro currency convertor</title>
   <link rel="stylesheet" href="./css/style.css">
   <script type="text/javascript" src="./js/bundle.js"></script>
 </head>
 <body>
   <div id="app">
 
-      <h1>Convert from Euros to your chosen currency</h1>
+    <h1>Euro currency convertor</h1>
+
+      <h2>Convert from Euros to your chosen currency</h2>
 
       <div class="">
         <label for="enter-Euro-amount">Enter amount in Euros:</label>
-        <input id="enter-Euro-amount" type="text" v-model="euroInputAmount">
+        <input id="enter-Euro-amount" type="number" v-model="euroInputAmount">
       </div>
 
       <div class="">
@@ -24,10 +26,10 @@
       </div>
 
       <div class="" v-if="euroInputAmount && euroToCurrencyRate">
-        <p>{{euroInputAmount}} Euros = {{targetCurrencyName}} {{targetCurrencyValue}}</p>
+        <p>> {{euroInputAmount}} Euros = {{targetCurrencyName}} {{targetCurrencyValue}}</p>
       </div>
 
-      <h1>Convert from your chosen currency to Euros</h1>
+      <h2>Convert from your chosen currency to Euros</h2>
 
       <div class="">
         <label for="select-chosen-currency">Which currency to you want to convert from?</label>
@@ -38,11 +40,11 @@
 
       <div class="">
         <label for="enter-chosen-currency-amount">Enter amount in your chosen currency:</label>
-        <input id="enter-chosen-currency-amount" type="text" v-model="currencyInputAmount">
+        <input id="enter-chosen-currency-amount" type="number" v-model="currencyInputAmount">
       </div>
 
       <div class="" v-if="currencyInputAmount && currencyToEuroRate">
-        <p>{{chosenCurrencyName}} {{currencyInputAmount}} = {{euroCurrencyValue}} Euros</p>
+        <p>> {{chosenCurrencyName}} {{currencyInputAmount}} = {{euroCurrencyValue}} Euros</p>
       </div>
 
   </div>
