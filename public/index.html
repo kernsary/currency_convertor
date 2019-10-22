@@ -8,25 +8,43 @@
 </head>
 <body>
   <div id="app">
-    <form>
+
+      <h1>Convert from Euros to your chosen currency</h1>
 
       <div class="">
-        <label for="enter-Euro-amount">Enter amount in euros:</label>
-        <input type="text" v-model="euroInputAmount">
+        <label for="enter-Euro-amount">Enter amount in Euros:</label>
+        <input id="enter-Euro-amount" type="text" v-model="euroInputAmount">
       </div>
 
       <div class="">
         <label for="select-target-currency">Which currency to you want to convert into?</label>
-        <select id="select-target-currency" v-model="name">
+        <select id="select-target-currency" v-model="targetCurrencyName">
           <option v-for="(value, name) in currencies" :value="name">{{name}}</option>
         </select>
       </div>
 
-      <div class="" v-if="euroInputAmount && rate">
-        <p>{{euroInputAmount}} Euros = {{name}} {{targetCurrencyValue}}</p>
+      <div class="" v-if="euroInputAmount && euroToCurrencyRate">
+        <p>{{euroInputAmount}} Euros = {{targetCurrencyName}} {{targetCurrencyValue}}</p>
       </div>
 
-    </form>
+      <h1>Convert from your chosen currency to Euros</h1>
+
+      <div class="">
+        <label for="select-chosen-currency">Which currency to you want to convert from?</label>
+        <select id="select-chosen-currency" v-model="chosenCurrencyName">
+          <option v-for="(value, name) in currencies" :value="name">{{name}}</option>
+        </select>
+      </div>
+
+      <div class="">
+        <label for="enter-chosen-currency-amount">Enter amount in your chosen currency:</label>
+        <input id="enter-chosen-currency-amount" type="text" v-model="currencyInputAmount">
+      </div>
+
+      <div class="" v-if="currencyInputAmount && currencyToEuroRate">
+        <p>{{chosenCurrencyName}} {{currencyInputAmount}} = {{euroCurrencyValue}} Euros</p>
+      </div>
+
   </div>
 </body>
 </html>

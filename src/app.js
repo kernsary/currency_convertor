@@ -6,7 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     data: {
       currencies: [],
       euroInputAmount: null,
-      name: null
+      currencyInputAmount: null,
+      targetCurrencyName: null,
+      chosenCurrencyName: null
     },
 
     mounted() {
@@ -15,13 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     computed: {
 
-      rate: function() {
-        return this.currencies[this.name]
+      euroToCurrencyRate: function() {
+        return this.currencies[this.targetCurrencyName]
+      },
+
+      currencyToEuroRate: function() {
+        return 1 / this.currencies[this.chosenCurrencyName]
       },
 
       targetCurrencyValue: function() {
-        return this.euroInputAmount * this.rate
+        return (this.euroInputAmount * this.euroToCurrencyRate).toFixed(2)
+      },
+
+      euroCurrencyValue: function() {
+        return (this.currencyInputAmount * this.currencyToEuroRate).toFixed(2)
       }
+
     },
 
     methods: {
