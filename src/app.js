@@ -6,26 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
     data: {
       currencies: [],
       euroInputAmount: null,
-      currency: null
-      // name: null,
-      // rate: null,
-      // index: null
+      name: null
     },
 
     mounted() {
       this.fetchRates();
-      console.log(this.currencies[1]);
     },
 
     computed: {
 
-      // name: function() {
-      //   return this.currencies[this.index].name
-      // },
-      //
-      // rate: function() {
-      //   return this.currencies[this.index].value
-      // },
+      rate: function() {
+        return this.currencies[this.name]
+      },
 
       targetCurrencyValue: function() {
         return this.euroInputAmount * this.rate

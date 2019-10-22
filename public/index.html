@@ -17,13 +17,13 @@
 
       <div class="">
         <label for="select-target-currency">Which currency to you want to convert into?</label>
-        <select id="select-target-currency" v-model="currency">
-          <option v-for="(value, name, index) in currencies" :value="currencies[index]">{{name}}</option>
+        <select id="select-target-currency" v-model="name">
+          <option v-for="(value, name) in currencies" :value="name">{{name}}</option>
         </select>
       </div>
 
       <div class="" v-if="euroInputAmount && rate">
-        <p>{{euroInputAmount}} Euros = {{currency.name}} {{targetCurrencyValue}}</p>
+        <p>{{euroInputAmount}} Euros = {{name}} {{targetCurrencyValue}}</p>
       </div>
 
     </form>
