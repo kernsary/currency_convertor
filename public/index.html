@@ -4,11 +4,29 @@
   <meta charset="utf-8">
   <title>Currency convertor</title>
   <link rel="stylesheet" href="./css/style.css">
-  <script type="text/javascript" src="/js/bundle.js"></script>
+  <script type="text/javascript" src="./js/bundle.js"></script>
 </head>
 <body>
   <div id="app">
+    <form>
 
+      <div class="">
+        <label for="enter-Euro-amount">Enter amount in euros:</label>
+        <input type="text" v-model="euroInputAmount">
+      </div>
+
+      <div class="">
+        <label for="select-target-currency">Which currency to you want to convert into?</label>
+        <select id="select-target-currency" v-model="currency">
+          <option v-for="(value, name, index) in currencies" :value="currencies[index]">{{name}}</option>
+        </select>
+      </div>
+
+      <div class="" v-if="euroInputAmount && rate">
+        <p>{{euroInputAmount}} Euros = {{currency.name}} {{targetCurrencyValue}}</p>
+      </div>
+
+    </form>
   </div>
 </body>
 </html>
